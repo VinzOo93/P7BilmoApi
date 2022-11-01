@@ -1,0 +1,15 @@
+App\Entity\User:
+  collectionOperations:
+    get:
+      normalization_context:
+        groups: [ 'user:item:get' ]
+    list:
+      normalization_context:
+        groups: ['user:collection:get']
+    itemOperations:
+      put:
+        normalization_context:
+          groups: [ 'user:item:get' ]
+        denormalization_context:
+          groups: [ 'user:item:put' ]
+

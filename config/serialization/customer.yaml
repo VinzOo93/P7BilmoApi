@@ -1,0 +1,28 @@
+App\Entity\Customer:
+  attributes:
+    id:
+      groups: ['customer.yaml:item:get']
+    company:
+      groups: [ 'customer.yaml:item:get', 'customer.yaml:collection:get', 'customer.yaml:item:post']
+    lastname:
+      groups: [ 'customer.yaml:item:get', 'customer.yaml:collection:get', 'customer.yaml:item:post' ]
+    firstname:
+      groups: [ 'customer.yaml:item:get', 'customer.yaml:collection:get', 'customer.yaml:item:post' ]
+    address:
+      groups: [ 'customer.yaml:item:get', 'customer.yaml:collection:get', 'customer.yaml:item:post' ]
+    city:
+      groups: [ 'customer.yaml:item:get', 'customer.yaml:collection:get', 'customer.yaml:item:post' ]
+    phoneNumber:
+      groups: [ 'customer.yaml:item:get', 'customer.yaml:collection:get', 'customer.yaml:item:post' ]
+    country:
+      groups: [ 'customer.yaml:item:get', 'customer.yaml:collection:get', 'customer.yaml:item:post' ]
+    postalCode:
+      groups: [ 'customer.yaml:item:get', 'customer.yaml:collection:get', 'customer.yaml:item:post' ]
+    email:
+      groups: [ 'customer.yaml:item:get', 'customer.yaml:collection:get', 'customer.yaml:item:post' ]
+    users:
+      groups: ['customer.yaml:collection:post', 'customer.yaml:item:get','customer.yaml:item:put', 'customer.yaml:collection:get']
+
+
+
+

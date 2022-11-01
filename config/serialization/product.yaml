@@ -1,0 +1,15 @@
+App\Entity\Product:
+  attributes:
+    id:
+      groups: ['product:item:get', 'product:collection:get']
+    brand:
+      groups: ['product:item:get', 'product:collection:get']
+    model:
+      groups: ['product:item:get', 'product:collection:get']
+    description:
+      groups: ['product:item:get', 'product:collection:get']
+    quantity:
+      groups: ['product:item:get', 'product:collection:get']
+    price:
+      groups: ['product:item:get', 'product:collection:get']
+

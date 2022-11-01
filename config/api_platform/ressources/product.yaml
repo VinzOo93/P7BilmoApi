@@ -1,0 +1,10 @@
+App\Entity\Product:
+  collectionOperations:
+    get:
+      normalization_context:
+        groups: [ 'product:item:get' ]
+    list:
+      normalization_context:
+        groups: ['product:collection:get']
+
+
