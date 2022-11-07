@@ -1,0 +1,11 @@
+App\Entity\Customer:
+  collectionOperations:
+    get:
+      normalization_context:
+        groups: [ 'customer:collection:get' ]
+  itemOperations:
+      get:
+        normalization_context:
+          groups: ['customer:item:get']
+
+

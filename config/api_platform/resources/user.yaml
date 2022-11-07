@@ -1,0 +1,23 @@
+App\Entity\User:
+  collectionOperations:
+    register:
+      method: POST
+      input: App\Dto\CreateUser
+      normalization_context:
+        groups: ['user:item:get']
+#      security:
+#        'is_granted("ROLE_ADMIN") or object == user'
+  itemOperations:
+    get:
+      normalization_context:
+        groups: [ 'user:item:get' ]
+    delete:
+      normalization_context:
+        groups: [ 'user:item:get' ]
+#      security:
+#        'is_granted("ROLE_ADMIN") or object == user'
+
+
+
+
+

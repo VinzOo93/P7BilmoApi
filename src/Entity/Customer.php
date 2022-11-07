@@ -65,7 +65,7 @@ class Customer
     private $email;
 
     /**
-     * @ORM\OneToMany(targetEntity=user::class, mappedBy="customer.yaml")
+     * @ORM\OneToMany(targetEntity=User::class, mappedBy="customer")
      */
     private $users;
 
