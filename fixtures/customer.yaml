@@ -1,0 +1,12 @@
+
+App\Entity\Customer:
+  customer{1..13}:
+    company: <company()>
+    lastname: <lastname()>
+    firstname: <name()>
+    address: <address()>
+    city: <city()>
+    phoneNumber: <numberBetween(0405959609, 2340590606)>
+    country: <country()>
+    postalCode: <numberBetween(24509, 98694)>
+    email: <email()>

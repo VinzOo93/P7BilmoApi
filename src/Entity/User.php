@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @method string getUserIdentifier()
  */
-class User implements UserInterface
+class User implements UserInterface, \Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface
 {
     /**
      * @ORM\Id
@@ -22,22 +22,22 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $email;
+    private ?string $email;
 
     /**
      * @ORM\Column(type="json")
      */
-    private $roles = [];
+    private array $roles = ['ROLE_USER'];
 
     /**
      * @ORM\Column(type="string", length=180)
      */
-    private $username;
+    private string $username;
 
     /**
-     * @ORM\Column(type="string", length=48)
+     * @ORM\Column(type="string", length=256)
      */
-    private $password;
+    private string $password;
 
     /**
      * @ORM\ManyToOne(targetEntity=Customer::class, inversedBy="users")

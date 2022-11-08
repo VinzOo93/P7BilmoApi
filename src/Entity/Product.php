@@ -20,27 +20,27 @@ class Product
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $brand;
+    private ?string $brand;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
      */
-    private $model;
+    private ?string $model;
 
     /**
      * @ORM\Column(type="text")
      */
-    private $description;
+    private ?string $description;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $quantity;
+    private ?int $quantity;
 
     /**
      * @ORM\Column(type="decimal", precision=7, scale=2)
      */
-    private $price;
+    private ?string $price;
 
     public function getId(): ?int
     {

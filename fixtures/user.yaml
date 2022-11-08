@@ -1,0 +1,9 @@
+
+App\Entity\User:
+  user{1..13}:
+    email: <email()>
+    username: <username()>
+    password: <hashPassword('hello123')>
+    customer: '@customer*'
+
+

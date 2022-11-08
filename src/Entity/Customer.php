@@ -22,17 +22,17 @@ class Customer
     /**
      * @ORM\Column(type="string", length=255, unique=true)
      */
-    private $company;
+    private ?string $company;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $lastname;
+    private ?string $lastname;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $firstname;
+    private ?string $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -42,32 +42,32 @@ class Customer
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $city;
+    private ?string $city;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $phoneNumber;
+    private ?string $phoneNumber;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $country;
+    private ?string $country;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $postalCode;
+    private ?string $postalCode;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $email;
+    private ?string $email;
 
     /**
      * @ORM\OneToMany(targetEntity=User::class, mappedBy="customer")
      */
-    private $users;
+    private  $users;
 
     public function __construct()
     {
@@ -91,12 +91,12 @@ class Customer
         return $this;
     }
 
-    public function getLasname(): ?string
+    public function getLastname(): ?string
     {
         return $this->lastname;
     }
 
-    public function seLastname(string $lastname): self
+    public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
 
