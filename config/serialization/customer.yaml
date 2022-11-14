@@ -21,7 +21,7 @@ App\Entity\Customer:
     email:
       groups: [ 'customer:item:get', 'customer:collection:get', 'customer:item:post' ]
     users:
-      groups: [ 'customer:item:get', 'user:collection:post', 'customer:collection:get']
+      groups: [ 'customer:item:get', 'customer:collection:get']
 
 
 

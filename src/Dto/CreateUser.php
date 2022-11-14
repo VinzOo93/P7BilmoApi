@@ -9,6 +9,4 @@ final class CreateUser
     public  $username;
 
     public  $password;
-
-    public $customer;
 }

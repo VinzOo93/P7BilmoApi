@@ -1,5 +1,8 @@
 App\Entity\User:
   collectionOperations:
+    get:
+      normalization_context:
+        groups: [ 'user:item:get' ]
     register:
       method: POST
       input: App\Dto\CreateUser
