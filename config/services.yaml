@@ -20,5 +20,8 @@ services:
             - '../src/Kernel.php'
     App\DataFixtures\Provider\Faker\HashPasswordProvider:
         tags: [ { name: nelmio_alice.faker.provider } ]
+    App\Swagger\JwtDecorator:
+        decorates: 'api_platform.openapi.factory'
+        autoconfigure: false
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
