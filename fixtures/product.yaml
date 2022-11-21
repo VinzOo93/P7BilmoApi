@@ -11,9 +11,9 @@ App\Entity\Product:
     quantity: <numberBetween(1, 50)>
     price: <numberBetween(400, 1000)>
 
-  product_2{1..2}:
+  product_2{21..22}:
     brand: <{brand_Samsung}>
-    model: <numberBetween(20,21)>
+    model: <current()>
     description: <text(100)>
     quantity: <numberBetween(1, 50)>
     price: <numberBetween(400, 1000)>

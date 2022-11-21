@@ -8,10 +8,6 @@ App\Entity\Customer:
       groups: [ 'customer:item:get', 'customer:collection:get' ]
     company:
       groups: [ 'customer:item:get', 'customer:collection:get']
-    lastname:
-      groups: [ 'customer:item:get', 'customer:collection:get' ]
-    firstname:
-      groups: [ 'customer:item:get', 'customer:collection:get' ]
     address:
       groups: [ 'customer:item:get', 'customer:collection:get' ]
     city:

@@ -4,8 +4,6 @@ App\Entity\Customer:
     username: <username()>
     password: <hashPassword('hello123')>
     company: <company()>
-    lastname: <lastname()>
-    firstname: <name()>
     address: <address()>
     city: <city()>
     phoneNumber: <numberBetween(0405959609, 2340590606)>

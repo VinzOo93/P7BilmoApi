@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures\Provider\Faker;
 
-use App\Entity\User;
+use App\Entity\Customer;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class HashPasswordProvider
@@ -16,7 +16,7 @@ class HashPasswordProvider
 
     public function hashPassword(string $plainPassword): string
     {
-        return $this->hasher->hashPassword(new User(), $plainPassword);
+        return $this->hasher->hashPassword(new Customer(), $plainPassword);
     }
 
 
