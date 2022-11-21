@@ -2,7 +2,8 @@
 App\Entity\User:
   user{1..13}:
     email: <email()>
-    username: <username()>
+    name: <lastname()>
+    firstname: <name()>
     password: <hashPassword('hello123')>
     customer: '@customer*'
 

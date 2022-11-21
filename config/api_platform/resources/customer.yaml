@@ -7,5 +7,3 @@ App\Entity\Customer:
       get:
         normalization_context:
           groups: ['customer:item:get']
-
-

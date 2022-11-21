@@ -1,6 +1,8 @@
 
 App\Entity\Customer:
   customer{1..13}:
+    username: <username()>
+    password: <hashPassword('hello123')>
     company: <company()>
     lastname: <lastname()>
     firstname: <name()>

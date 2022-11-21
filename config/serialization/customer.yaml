@@ -2,24 +2,28 @@ App\Entity\Customer:
   attributes:
     id:
       groups: ['customer:item:get']
+    username:
+      groups: [ 'customer:item:get', 'customer:collection:get' ]
+    password:
+      groups: [ 'customer:item:get', 'customer:collection:get' ]
     company:
-      groups: [ 'customer:item:get', 'customer:collection:get', 'customer:item:post']
+      groups: [ 'customer:item:get', 'customer:collection:get']
     lastname:
-      groups: [ 'customer:item:get', 'customer:collection:get', 'customer:item:post' ]
+      groups: [ 'customer:item:get', 'customer:collection:get' ]
     firstname:
-      groups: [ 'customer:item:get', 'customer:collection:get', 'customer:item:post' ]
+      groups: [ 'customer:item:get', 'customer:collection:get' ]
     address:
-      groups: [ 'customer:item:get', 'customer:collection:get', 'customer:item:post' ]
+      groups: [ 'customer:item:get', 'customer:collection:get' ]
     city:
-      groups: [ 'customer:item:get', 'customer:collection:get', 'customer:item:post' ]
+      groups: [ 'customer:item:get', 'customer:collection:get' ]
     phoneNumber:
-      groups: [ 'customer:item:get', 'customer:collection:get', 'customer:item:post' ]
+      groups: [ 'customer:item:get', 'customer:collection:get' ]
     country:
-      groups: [ 'customer:item:get', 'customer:collection:get', 'customer:item:post' ]
+      groups: [ 'customer:item:get', 'customer:collection:get' ]
     postalCode:
-      groups: [ 'customer:item:get', 'customer:collection:get', 'customer:item:post' ]
+      groups: [ 'customer:item:get', 'customer:collection:get' ]
     email:
-      groups: [ 'customer:item:get', 'customer:collection:get', 'customer:item:post' ]
+      groups: [ 'customer:item:get', 'customer:collection:get' ]
     users:
       groups: [ 'customer:item:get', 'customer:collection:get']
 

@@ -6,7 +6,7 @@ final class CreateUser
 {
     public $email;
 
-    public  $username;
+    public  $name;
 
-    public  $password;
+    public  $firstname;
 }

@@ -4,14 +4,12 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
-use \Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @method string getUserIdentifier()
  */
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+class User
 {
     /**
      * @ORM\Id
@@ -26,22 +24,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $email;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="string", length=180, unique=true)
      */
-    private array $roles = ['ROLE_USER'];
+    private ?string $name;
 
     /**
-     * @ORM\Column(type="string", length=180)
+     * @ORM\Column(type="string", length=180, unique=true)
      */
-    private string $username;
-
-    /**
-     * @ORM\Column(type="string", length=256)
-     */
-    private string $password;
+    private ?string $firstname;
 
     /**
      * @ORM\ManyToOne(targetEntity=Customer::class, inversedBy="users")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $customer;
 
@@ -50,62 +44,55 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->id;
     }
 
-    public function getRoles(): array
+    /**
+     * @return string|null
+     */
+    public function getName(): ?string
     {
-        return $this->roles;
+        return $this->name;
     }
 
-    public function getPassword(): string
+    /**
+     * @param string|null $name
+     */
+    public function setName(?string $name): void
     {
-        return $this->password;
+        $this->name = $name;
     }
 
-    public function getUsername(): string
+    /**
+     * @return string|null
+     */
+    public function getFirstname(): ?string
     {
-        return $this->username;
+        return $this->firstname;
     }
 
+    /**
+     * @param string|null $firstname
+     */
+    public function setFirstname(?string $firstname): void
+    {
+        $this->firstname = $firstname;
+    }
+
+    /**
+     * @return string|null
+     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
+    /**
+     * @param string $email
+     * @return $this
+     */
     public function setEmail(string $email): self
     {
         $this->email = $email;
 
         return $this;
-    }
-
-    public function setRoles(array $roles): self
-    {
-        $this->roles = $roles;
-
-        return $this;
-    }
-
-    public function setUsername(string $username): self
-    {
-        $this->username = $username;
-
-        return $this;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    public function getSalt()
-    {
-        // TODO: Implement getSalt() method.
-    }
-
-    public function eraseCredentials()
-    {
-        // TODO: Implement eraseCredentials() method.
     }
 
     public function getCustomer(): ?Customer
@@ -119,4 +106,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
 }

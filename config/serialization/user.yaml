@@ -4,9 +4,7 @@ App\Entity\User:
       groups: ['user:item:get']
     email:
       groups: ['user:item:get', 'user:collection:post']
-    username:
+    name:
       groups: ['user:item:get', 'user:collection:post']
-    password:
+    firstname:
       groups: ['user:item:get']
-    customer:
-      groups: ['user:item:get', 'user:collection:post']
