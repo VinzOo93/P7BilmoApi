@@ -3,22 +3,26 @@ App\Entity\User:
     get:
       normalization_context:
         groups: [ 'user:item:get' ]
+      security:
+        'is_granted("ROLE_USER")'
     register:
       method: POST
       input: App\Dto\CreateUser
       normalization_context:
         groups: ['user:item:get']
-#      security:
-#        'is_granted("ROLE_ADMIN") or object == user'
+      security:
+        'is_granted("ROLE_USER")'
   itemOperations:
     get:
       normalization_context:
         groups: [ 'user:item:get' ]
+      security:
+        'is_granted("ROLE_USER")'
     delete:
       normalization_context:
         groups: [ 'user:item:get' ]
-#      security:
-#        'is_granted("ROLE_ADMIN") or object == user'
+      security:
+        'is_granted("ROLE_USER")'
 
 
 

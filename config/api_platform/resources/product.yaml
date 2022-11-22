@@ -3,8 +3,12 @@ App\Entity\Product:
     get:
       normalization_context:
         groups: [ 'product:collection:get']
+      security:
+        'is_granted("ROLE_USER")'
   itemOperations:
     get:
       normalization_context:
         groups: [ 'product:item:get' ]
+      security:
+        'is_granted("ROLE_USER")'
 

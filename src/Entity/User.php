@@ -37,7 +37,7 @@ class User
      * @ORM\ManyToOne(targetEntity=Customer::class, inversedBy="users")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $customer;
+    private Customer $customer;
 
     public function getId(): ?int
     {

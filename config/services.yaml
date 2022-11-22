@@ -20,8 +20,13 @@ services:
             - '../src/Kernel.php'
     App\DataFixtures\Provider\Faker\HashPasswordProvider:
         tags: [ { name: nelmio_alice.faker.provider } ]
+
+    App\Doctrine\CurrentCustomerExtension:
+        tags:
+            - { name: api_platform.doctrine.orm.query_extension.collection }
+            - { name: api_platform.doctrine.orm.query_extension.item }
     App\Swagger\JwtDecorator:
         decorates: 'api_platform.openapi.factory'
-        autoconfigure: false
+        arguments: ['@.inner']
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
