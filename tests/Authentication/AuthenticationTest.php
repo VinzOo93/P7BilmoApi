@@ -5,12 +5,40 @@ namespace App\Tests\Authentication;
 use ApiPlatform\Symfony\Bundle\Test\ApiTestCase;
 use App\Entity\Customer;
 use Hautelook\AliceBundle\PhpUnit\ReloadDatabaseTrait;
+use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
+use \Symfony\Contracts\HttpClient\ResponseInterface;
 
+/**
+ *
+ */
 class AuthenticationTest extends ApiTestCase
 {
     use ReloadDatabaseTrait;
 
-    public function testLogin(): void
+    /**
+     * @return void
+     * @throws ClientExceptionInterface
+     * @throws DecodingExceptionInterface
+     * @throws RedirectionExceptionInterface
+     * @throws ServerExceptionInterface
+     * @throws TransportExceptionInterface
+     */
+    public function testLogin()
+    {
+        $json = $this->prepareUser()->toArray();
+        $this->assertResponseIsSuccessful();
+        $this->assertArrayHasKey('token', $json);
+    }
+
+    /**
+     * @return ResponseInterface
+     * @throws TransportExceptionInterface
+     */
+    public function prepareUser(): ResponseInterface
     {
         $client = self::createClient();
         $container = self::getContainer();
@@ -33,17 +61,12 @@ class AuthenticationTest extends ApiTestCase
         $manager->flush();
 
         // retrieve a token
-        $response = $client->request('POST', '/authentication_token', [
+        return $client->request('POST', '/authentication_token', [
             'headers' => ['Content-Type' => 'application/json'],
             'json' => [
                 'email' => 'test@example.com',
                 'password' => '$3CR3T',
             ],
         ]);
-
-        $json = $response->toArray();
-        $this->assertResponseIsSuccessful();
-        $this->assertArrayHasKey('token', $json);
-
     }
 }
