@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 /**
  *
  */
-class UserTest extends TestCase
+class UserTestEntity extends TestCase
 {
     /**
      * @return void

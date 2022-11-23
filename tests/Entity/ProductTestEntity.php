@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 /**
  *
  */
-class ProductTest extends TestCase
+class ProductTestEntity extends TestCase
 {
     /**
      * @return void
