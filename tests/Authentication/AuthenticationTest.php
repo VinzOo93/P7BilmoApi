@@ -29,6 +29,7 @@ class AuthenticationTest extends ApiTestCase
      */
     public function testLogin()
     {
+        dd($this->prepareUser());
         $json = $this->prepareUser()->toArray();
         $this->assertResponseIsSuccessful();
         $this->assertArrayHasKey('token', $json);
@@ -41,31 +42,13 @@ class AuthenticationTest extends ApiTestCase
     public function prepareUser(): ResponseInterface
     {
         $client = self::createClient();
-        $container = self::getContainer();
-
-        $customer = new Customer();
-        $customer->setEmail('test@example.com');
-        $customer->setUsername('test');
-        $customer->setCompany('test');
-        $customer->setAddress('test');
-        $customer->setCity('test');
-        $customer->setPhoneNumber('0606060666');
-        $customer->setCountry('France');
-        $customer->setPostalCode('67000');
-        $customer->setPassword(
-            $container->get('security.user_password_hasher')->hashPassword($customer, '$3CR3T')
-        );
-
-        $manager = $container->get('doctrine')->getManager();
-        $manager->persist($customer);
-        $manager->flush();
 
         // retrieve a token
         return $client->request('POST', '/authentication_token', [
             'headers' => ['Content-Type' => 'application/json'],
             'json' => [
-                'email' => 'test@example.com',
-                'password' => '$3CR3T',
+                'email' => 'xrodriguez@yahoo.com',
+                'password' => 'hello123',
             ],
         ]);
     }
