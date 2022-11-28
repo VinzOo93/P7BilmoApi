@@ -62,6 +62,14 @@ class ProductTest extends ApiTestCase
         $this->assertMatchesResourceCollectionJsonSchema(Product::class);
     }
 
+    /**
+     * @return void
+     * @throws ClientExceptionInterface
+     * @throws DecodingExceptionInterface
+     * @throws RedirectionExceptionInterface
+     * @throws ServerExceptionInterface
+     * @throws TransportExceptionInterface
+     */
     public function testGetProduct(): void
     {
         // The client implements Symfony HttpClient's `HttpClientInterface`, and the response `ResponseInterface`

@@ -59,6 +59,37 @@ class CustomerTest extends ApiTestCase
     }
 
     /**
+     * @return void
+     * @throws ClientExceptionInterface
+     * @throws DecodingExceptionInterface
+     * @throws RedirectionExceptionInterface
+     * @throws ServerExceptionInterface
+     * @throws TransportExceptionInterface
+     */
+    public function testGetCustomer(): void
+    {
+        static::createClient()->request('GET', 'api/customers/4');
+
+        $this->assertResponseStatusCodeSame('401');
+        $data = $this->initAuth()->prepareUser()->toArray();
+
+        static::createClient()->request(
+            'GET',
+            'api/customers/4',
+            [
+                'headers' => [
+                    'Authorization' => 'Bearer ' .$data['token']
+                ]
+            ]
+        );
+
+        $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
+
+        $this->assertMatchesResourceItemJsonSchema(Customer::class);
+    }
+
+
+    /**
      * @return AuthenticationTest
      */
     private function initAuth(): AuthenticationTest

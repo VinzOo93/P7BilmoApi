@@ -3,7 +3,6 @@
 namespace App\Tests\Authentication;
 
 use ApiPlatform\Symfony\Bundle\Test\ApiTestCase;
-use App\Entity\Customer;
 use Hautelook\AliceBundle\PhpUnit\ReloadDatabaseTrait;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
@@ -29,7 +28,6 @@ class AuthenticationTest extends ApiTestCase
      */
     public function testLogin()
     {
-        dd($this->prepareUser());
         $json = $this->prepareUser()->toArray();
         $this->assertResponseIsSuccessful();
         $this->assertArrayHasKey('token', $json);
